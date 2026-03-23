@@ -1,7 +1,7 @@
 <template>
-  <h1>here is the data for H2O consumed by the yorkers</h1>
+  <!-- <h1>here is the data for H2O consumed by the yorkers</h1> -->
   <div class="container">
-    <DataCard v-for="water in waterconsumption" :key="water.name" :waterconsumption="water" />
+    <DataCard v-for="water in waterlist" :key="water.year" :waterlist="water" />
   </div>
 </template>
 
@@ -9,15 +9,13 @@
 import { ref, onMounted } from 'vue'
 import DataCard from '@/components/DataCard.vue'
 
-const waterconsumption = ref([])
+const waterlist = ref([])
 async function getData() {
   try {
-    const response = await fetch(
-      'https://data.cityofnewyork.us/resource/ia2d-e54m.json?limit=150&offset=0',
-    )
+    const response = await fetch(`https://data.cityofnewyork.us/resource/ia2d-e54m.json`)
     const data = await response.json()
 
-    waterconsumption.value = data.year
+    waterlist.value = data
   } catch (error) {
     console.log(error)
   }
@@ -26,7 +24,7 @@ onMounted(() => {
   getData()
 })
 
-console.log(waterconsumption)
+console.log(waterlist.value)
 </script>
 
 <style scoped>

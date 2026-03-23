@@ -1,20 +1,20 @@
 <template>
   <router-link :to="wtrdataPath" class="card">
-    <h2>{{ waterconsumption.name }}</h2>
+    <h2>{{ waterlist.year }}</h2>
   </router-link>
 </template>
 
 <script setup>
 import { computed } from 'vue'
 const props = defineProps({
-  waterconsumption: {
+  waterlist: {
     type: Object,
     required: true,
   },
 })
 
 const wtrdataPath = computed(() => {
-  return `/wtrdata/${props.waterconsumption.name}`
+  return `/wtrdata/${props.waterlist.year}`
 })
 </script>
 
