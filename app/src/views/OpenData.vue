@@ -1,5 +1,5 @@
 <template>
-  <!-- <h1>here is the data for H2O consumed by the yorkers</h1> -->
+  <h1>Here is the data for H2O consumed by the yorkers</h1>
   <div class="container">
     <DataCard v-for="water in waterlist" :key="water.year" :waterlist="water" />
   </div>
@@ -23,18 +23,20 @@ async function getData() {
 onMounted(() => {
   getData()
 })
-
-console.log(waterlist.value)
 </script>
 
 <style scoped>
 .container {
   width: 80vw;
-  margin: 30px auto;
+  margin: 10px auto;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+}
+
+h1 {
+  text-align: center;
 }
 </style>
