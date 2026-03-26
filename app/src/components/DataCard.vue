@@ -34,7 +34,6 @@ const wtrdataPath = computed(() => {
   flex-direction: column;
   align-items: center;
   padding: 10px;
-  text-transform: uppercase;
   text-decoration: none;
   color: black;
 }

@@ -1,6 +1,12 @@
 <template>
-  <div>
-    <h2>{{ waterlist.year }}</h2>
+  <div class="data" v-for="item in waterlist" :key="item.year">
+    <h2>Year: {{ item.year }}</h2>
+    <h3>Population of NYC : {{ item.new_york_city_population }}</h3>
+    <h3>
+      Water Consumption Per Day (millions of gallons):
+      {{ item.nyc_consumption_million_gallons_per_day }}
+    </h3>
+    <h3>Gallons Per Person Per Day : {{ item.per_capita_gallons_per_person_per_day }}</h3>
   </div>
 </template>
 
@@ -26,4 +32,12 @@ watch(
 )
 </script>
 
-<style scoped></style>
+<style scoped>
+h2 {
+  font-size: 50px;
+}
+.data {
+  text-align: center;
+  margin: 40px;
+}
+</style>
